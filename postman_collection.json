@@ -1,0 +1,80 @@
+{
+  "info": {
+    "name": "Recipe & Nutrition Helper",
+    "description": "API for searching recipes, scraping recipe data, and analyzing nutrition",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/health",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["health"]
+        },
+        "description": "Check if API is running"
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze Recipe (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"ingredient\": \"paneer\",\n  \"preference\": \"healthy\",\n  \"max_results\": 4\n}"
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/analyze",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["analyze"]
+        },
+        "description": "Search for recipe, scrape data, and analyze nutrition (POST)"
+      },
+      "response": []
+    },
+    {
+      "name": "Analyze Recipe (GET)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://127.0.0.1:8000/analyze-simple?ingredient=paneer&preference=healthy&top_n=4",
+          "protocol": "http",
+          "host": ["127", "0", "0", "1"],
+          "port": "8000",
+          "path": ["analyze-simple"],
+          "query": [
+            {
+              "key": "ingredient",
+              "value": "paneer"
+            },
+            {
+              "key": "preference",
+              "value": "healthy"
+            },
+            {
+              "key": "top_n",
+              "value": "4"
+            }
+          ]
+        },
+        "description": "Search for recipe, scrape data, and analyze nutrition (GET)"
+      },
+      "response": []
+    }
+  ]
+}
